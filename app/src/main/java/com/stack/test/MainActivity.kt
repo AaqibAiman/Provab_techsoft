@@ -1,12 +1,15 @@
 package com.stack.test
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.LinearLayout
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 import kotlin.collections.ArrayList
+
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -34,22 +37,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun addStringToStack(str: String) {
+        val lparams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
+        val tv = TextView(this)
+        tv.layoutParams = lparams
+        tv.text = str
+        ll_txt_layout.addView(tv)
 
-      /*  when {
-            firstString != null -> {
-                secondString = str
-            }
-            secondString != null -> {
-                firstString = str
-            }
-            else -> {
-                strList?.add(str)
-            }
-        }
-*/
         strList?.add(str)
-      /*  tv_s1.text = strList!![0]
-        tv_s2.text = strList!![1]*/
         ed_value.text?.clear()
         addToStack(strList)
 
